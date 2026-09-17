@@ -1,0 +1,527 @@
+/* =========================================================
+   Konsep desain: halus, hangat, dan rapi — palet warm-neutral
+   dengan aksen terracotta lembut. Semua blok konten dipusatkan
+   (center) di dalam kolom agar terlihat seimbang, dengan kartu
+   yang konsisten tapi tidak monoton (beberapa section pakai
+   daftar/garis waktu sesuai jenis kontennya).
+   ========================================================= */
+
+:root {
+    --ink: #2a241f;
+    /* teks utama, coklat gelap hangat */
+    --paper: #faf7f2;
+    /* latar halaman, putih hangat */
+    --card: #ffffff;
+    --accent: #b3775a;
+    /* aksen terracotta lembut */
+    --accent-soft: #f0e2d6;
+    --line: #e6ddd0;
+    --muted: #7d7469;
+    --shadow: 0 12px 30px -18px rgba(42, 36, 31, .25);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    letter-spacing: -.01em;
+}
+
+p {
+    max-width: 62ch;
+}
+
+a {
+    color: var(--accent);
+}
+
+a:hover {
+    color: #8f5c43;
+}
+
+::selection {
+    background: var(--accent-soft);
+    color: var(--ink);
+}
+
+/* ===== Navbar atas ===== */
+.topnav {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding-top: .9rem;
+    padding-bottom: .9rem;
+}
+
+.topnav .navbar-brand {
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.topnav .navbar-brand span {
+    color: var(--accent);
+}
+
+.topnav .navbar-nav {
+    gap: .35rem;
+}
+
+.topnav .nav-link {
+    color: var(--ink);
+    font-weight: 500;
+    font-size: .92rem;
+    padding: .4rem .85rem !important;
+    border-radius: .5rem;
+    transition: background .15s ease, color .15s ease;
+}
+
+.topnav .nav-link:hover {
+    background: var(--accent-soft);
+    color: var(--ink);
+}
+
+.topnav .nav-link.active {
+    color: var(--accent);
+}
+
+.topnav .nav-cta {
+    background: var(--ink);
+    color: #fff !important;
+    font-weight: 500;
+    font-size: .9rem;
+    padding: .55rem 1.4rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .15s ease, transform .15s ease;
+}
+
+.topnav .nav-cta:hover {
+    background: var(--accent);
+    transform: translateY(-1px);
+}
+
+.navbar-toggler {
+    border-color: var(--line);
+}
+
+@media (max-width: 991px) {
+    .topnav .nav-cta {
+        display: inline-block;
+        margin-top: .75rem;
+    }
+}
+
+.page-content {
+    padding-top: 68px;
+}
+
+/* ===== Layout section umum ===== */
+.section-pad {
+    padding: 5.5rem 0;
+}
+
+.section-pad+.section-pad {
+    border-top: 1px solid var(--line);
+}
+
+.section-intro {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 3rem;
+}
+
+.section-label {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: .5rem;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: .6rem;
+}
+
+.section-intro p {
+    color: var(--muted);
+    margin: 0 auto;
+}
+
+/* ===== Hero ===== */
+.hero {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(circle at 50% 0%, var(--accent-soft) 0%, transparent 55%),
+        var(--paper);
+}
+
+.hero .inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero img.profileImage {
+    width: 168px;
+    height: 168px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid var(--card);
+    box-shadow: var(--shadow);
+    margin-bottom: 1.6rem;
+}
+
+.hero h1 {
+    font-size: 2.3rem;
+    margin-bottom: .4rem;
+}
+
+.hero .role {
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.hero .tagline {
+    color: var(--muted);
+    margin: 0 auto 1.8rem;
+}
+
+.btn-soft {
+    display: inline-block;
+    background: var(--ink);
+    color: #fff;
+    font-weight: 500;
+    padding: .75rem 1.8rem;
+    border-radius: .6rem;
+    text-decoration: none;
+    transition: transform .15s ease, background .15s ease;
+}
+
+.btn-soft:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* ===== Prosa terpusat (Tentang / Profil Profesional) ===== */
+.prose-center {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.prose-center p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.prose-center .field {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: .9rem;
+    color: var(--muted);
+    background: var(--accent-soft);
+    padding: .4rem 1rem;
+    border-radius: 2rem;
+}
+
+.prose-center .field b {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.pro-card {
+    max-width: 560px;
+    margin: 0 auto;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.pro-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: .2rem;
+}
+
+.pro-card .meta {
+    color: var(--accent);
+    font-size: .9rem;
+    margin-bottom: 1rem;
+}
+
+.pro-card p:last-child {
+    margin: 0 auto;
+    color: var(--muted);
+}
+
+/* ===== Timeline pendidikan ===== */
+.timeline {
+    max-width: 520px;
+    margin: 0 auto;
+    padding-left: 1.6rem;
+    border-left: 2px solid var(--accent-soft);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 2rem;
+    text-align: left;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -1.94rem;
+    top: .3rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 3px solid var(--accent);
+}
+
+.timeline-item .meta {
+    font-size: .8rem;
+    color: var(--accent);
+    margin-bottom: .15rem;
+    font-weight: 500;
+}
+
+.timeline-item h3 {
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+/* ===== Kartu generik (Pengalaman / Sertifikat / Kegiatan / Artikel) ===== */
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+.info-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: .9rem;
+    padding: 1.6rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    flex: 1 1 260px;
+    max-width: 320px;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+}
+
+.info-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: .5rem;
+}
+
+.info-card .meta {
+    color: var(--accent);
+    font-size: .85rem;
+    margin-bottom: .6rem;
+    font-weight: 500;
+}
+
+.info-card p {
+    color: var(--muted);
+    font-size: .92rem;
+    margin: 0 auto;
+}
+
+.info-card a.card-link {
+    display: inline-block;
+    margin-top: .9rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.info-card a.card-link:hover {
+    text-decoration: underline;
+}
+
+.info-card.card-wide {
+    max-width: 640px;
+    text-align: left;
+}
+
+.info-card.card-wide h3 {
+    text-align: left;
+}
+
+.info-card.card-wide p {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Carousel foto kecil di dalam kartu (section Kegiatan) */
+.card-carousel {
+    width: 100%;
+    height: 150px;
+    border-radius: .7rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    background: var(--accent-soft);
+}
+
+.card-carousel .carousel-inner,
+.card-carousel .carousel-item {
+    height: 100%;
+}
+
+.card-carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-carousel .carousel-indicators {
+    margin-bottom: .4rem;
+}
+
+.card-carousel .carousel-indicators button {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: .55;
+    border: none;
+}
+
+.card-carousel .carousel-indicators button.active {
+    opacity: 1;
+}
+
+/* ===== Keahlian ===== */
+.skills-wrap {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.skill-row {
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
+
+.skill-row .skill-head {
+    display: flex;
+    justify-content: space-between;
+    font-size: .92rem;
+    margin-bottom: .4rem;
+}
+
+.skill-row .skill-head span:last-child {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.skill-track {
+    height: 8px;
+    background: var(--accent-soft);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 4px;
+}
+
+/* ===== Kontak ===== */
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    background: var(--ink);
+    color: #d9d2c6;
+    padding: 2.8rem 0 1.8rem;
+    text-align: center;
+}
+
+.site-footer a {
+    color: #f0e6d8;
+}
+
+.site-footer p.brand {
+    font-weight: 600;
+    color: #fff;
+    margin: 0 auto .6rem;
+}
+
+.site-footer .foot-links {
+    margin-bottom: 1rem;
+}
+
+.site-footer .foot-links a {
+    margin: 0 .7rem;
+    text-decoration: none;
+}
+
+.site-footer .foot-links a:hover {
+    text-decoration: underline;
+}
+
+.site-footer .socials a {
+    font-size: 1.15rem;
+    margin: 0 .5rem;
+}
+
+.site-footer p.copyright {
+    font-size: .85rem;
+    color: #9c9384;
+    margin: 1rem auto 0;
+}
+
+/* ===== Aksesibilitas ===== */
+a:focus-visible,
+button:focus-visible,
+.nav-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
